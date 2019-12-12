@@ -1,7 +1,7 @@
 {
-  "name": "ngx-markdown-editor",
-  "version": "2.4.0",
-  "description": "Angular markdown editor based on ace editor",
+  "name": "ngx-markdown-editor-telegram",
+  "version": "2.4.1",
+  "description": "Angular markdown editor based on ace editor - fork to support telegram flavours",
   "main": "index.js",
   "scripts": {
     "build": "ng-packagr -p ng-package.json -c tsconfig.ngc.json",
@@ -11,13 +11,13 @@
     "start": "ng serve",
     "build:demo": "ng build",
     "copy": "npm run copy:assets && npm run copy:schemas && npm run copy:collection",
-    "copy:assets": "xcopy src\\assets dist\\assets /S/E/I",
-    "copy:schemas": "xcopy schematics\\ng-add\\schema.json dist\\schematics\\ng-add\\schema.json*",
-    "copy:collection": "xcopy schematics\\collection.json dist\\schematics\\collection.json*"
+    "copy:assets": "cp -r src/assets dist/assets",
+    "copy:schemas": "cp -r schematics/ng-add/schema.json dist/schematics/ng-add/schema.json*",
+    "copy:collection": "cp -r schematics/collection.json dist/schematics/collection.json*"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lon-yang/ngx-markdown-editor.git"
+    "url": "git+https://github.com/elnelsonperez/ngx-markdown-editor"
   },
   "keywords": [
     "markdown",

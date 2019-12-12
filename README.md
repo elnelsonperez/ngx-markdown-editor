@@ -1,6 +1,6 @@
 # ngx-markdown-editor
 Angular markdown editor based on ace editor
-
+### FOR TO SUPPORT TELEGRAM FLAVOURS
 [![npm version](https://img.shields.io/npm/v/ngx-markdown-editor?color=rgb%2868%2C%20204%2C%2017%29)](https://badge.fury.io/js/ngx-markdown-editor)
 [![peerDependencies Status](https://david-dm.org/lon-yang/ngx-markdown-editor/peer-status.svg)](https://david-dm.org/lon-yang/ngx-markdown-editor?type=peer)
 [![npm](https://img.shields.io/npm/dm/ngx-markdown-editor?color=rgb%2868%2C%20204%2C%2017%29)](https://www.npmjs.com/package/ngx-markdown-editor)

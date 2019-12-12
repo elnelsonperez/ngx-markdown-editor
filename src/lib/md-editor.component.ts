@@ -32,6 +32,7 @@ export class MarkdownEditorComponent implements ControlValueAccessor, Validator 
   @Input() public height: string = "300px";
   @Input() public preRender: Function;
   @Input() public upload: Function;
+  @Input() public telegramFlavour: boolean;
 
   @Input()
   public get mode(): string {
@@ -177,8 +178,60 @@ export class MarkdownEditorComponent implements ControlValueAccessor, Validator 
     return result;
   }
 
+  insertContentTelegram(type: string, customContent?: string) {
+
+    let selectedText = this._editor.getSelectedText();
+    let isSelected = !!selectedText;
+    let startSize = 2;
+    let initText: string = '';
+    let range = this._editor.selection.getRange();
+    switch (type) {
+      case 'Bold':
+        initText = 'Bold Text';
+        selectedText = `*${selectedText || initText}*`;
+        break;
+      case 'Italic':
+        initText = 'Italic Text';
+        selectedText = `_${selectedText || initText}_`;
+        startSize = 1;
+        break;
+      case 'Link':
+        selectedText = `[](http://)`;
+        startSize = 1;
+        break;
+      case 'Ul':
+        selectedText = `- ${selectedText || initText}`;
+        break;
+      case 'Ol':
+        selectedText = `1. ${selectedText || initText}`;
+        startSize = 3;
+        break;
+      case 'Code':
+        initText = 'Code';
+        selectedText = "```block\r\n" + (selectedText || initText) + "\r\n```";
+        startSize = 3;
+        break;
+      case 'Custom':
+        selectedText = customContent;
+        startSize = 0;
+        break;
+    }
+    this._editor.session.replace(range, selectedText);
+    if (!isSelected) {
+      range.start.column += startSize;
+      range.end.column = range.start.column + initText.length;
+      this._editor.selection.setRange(range);
+    }
+    this._editor.focus();
+  }
+
   insertContent(type: string, customContent?: string) {
     if (!this._editor) return;
+
+    if (this.telegramFlavour) {
+      return this.insertContentTelegram(type, customContent);
+    }
+
     let selectedText = this._editor.getSelectedText();
     let isSelected = !!selectedText;
     let startSize = 2;
