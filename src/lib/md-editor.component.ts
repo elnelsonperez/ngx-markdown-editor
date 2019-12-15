@@ -148,6 +148,11 @@ export class MarkdownEditorComponent implements ControlValueAccessor, Validator 
     });
   }
 
+
+  getAceEditor() {
+    return this._editor;
+  }
+
   ngOnDestroy() {
     this._editor && this._editor.destroy();
   }
