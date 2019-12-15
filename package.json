@@ -1,6 +1,6 @@
 {
   "name": "ngx-markdown-editor-telegram",
-  "version": "2.4.8",
+  "version": "2.4.9",
   "description": "Angular markdown editor based on ace editor - fork to support telegram flavours",
   "main": "index.js",
   "scripts": {

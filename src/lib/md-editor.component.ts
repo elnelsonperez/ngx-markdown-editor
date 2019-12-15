@@ -114,7 +114,9 @@ export class MarkdownEditorComponent implements ControlValueAccessor, Validator 
     @Attribute('required') public required: boolean = false,
     @Attribute('maxlength') public maxlength: number = -1,
     private _renderer2: Renderer2,
-    private _domSanitizer: DomSanitizer) {
+    private _domSanitizer: DomSanitizer,
+    public elementRef: ElementRef
+    ) {
 
   }
 
