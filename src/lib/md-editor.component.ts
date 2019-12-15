@@ -310,6 +310,10 @@ export class MarkdownEditorComponent implements ControlValueAccessor, Validator 
     this.editorResize();
   }
 
+  focus() {
+    this._editor.focus();
+  }
+
   editorResize(timeOut: number = 100) {
     if (!this._editor) return
     if (this._editorResizeTimer) clearTimeout(this._editorResizeTimer);
